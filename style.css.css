@@ -1,0 +1,118 @@
+:root {
+    --primary: #00cec9;
+    --dark: #2d3436;
+    --bg-light: #f9f9f9;
+    --text-main: #2d3436;
+    --text-muted: #636e72;
+    --sidebar-bg: #1e272e;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: var(--bg-light);
+    color: var(--text-main);
+}
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 280px;
+    background: var(--sidebar-bg);
+    color: #fff;
+    padding: 40px 20px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.brand {
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--primary);
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    padding-left: 10px;
+}
+
+.nav-section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+}
+
+.nav-section a {
+    display: block;
+    color: #dfe6e9;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-size: 0.95rem;
+}
+
+.nav-section a:hover {
+    background: rgba(255,255,255,0.05);
+    color: var(--primary);
+    padding-left: 15px;
+}
+
+.content {
+    flex: 1;
+    margin-left: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.hero-card {
+    max-width: 600px;
+    width: 100%;
+    border-left: 6px solid var(--primary);
+    padding-left: 40px;
+}
+
+.badge {
+    color: var(--primary);
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin: 20px 0;
+    line-height: 1.1;
+    font-weight: 300;
+}
+
+h1 b {
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.divider {
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    margin: 30px 0;
+}
+
+.institution {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
