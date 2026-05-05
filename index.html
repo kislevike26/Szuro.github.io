@@ -3,54 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Itt módosítottam a webcímet a böngésző fülén -->
-    <title>Szuróczki portfólió</title>
+    <title>Szuróczki Levente Portfólió</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <!-- Permanent Marker a névhez, Oswald a menühöz -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Permanent+Marker&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="retro-sun"></div>
-    <div class="vhs-overlay"></div>
+    <!-- A pálmafás háttér külön rétegen -->
+    <div class="vc-background"></div>
+    <div class="scanlines"></div>
+    
+    <div class="main-container">
+        <div class="sidebar">
+            <div class="vc-logo-area">
+                <div class="main-name">SZURÓCZKI LEVENTE</div>
+                <div class="gold-bar">
+                    Dunaújvárosi Egyetem Bánki Donát Technikum
+                </div>
+            </div>
 
-    <header class="vice-header">
-        <h1 class="game-title">SZURÓCZKI <span>LEVENTE</span></h1>
-    </header>
+            <nav class="side-menu">
+                <button class="menu-btn active" onclick="switchTab('grade11', this)">11. OSZTÁLY</button>
+                <button class="menu-btn" onclick="switchTab('grade12', this)">12. OSZTÁLY</button>
+                <button class="menu-btn" onclick="switchTab('grade13', this)">13. OSZTÁLY</button>
+            </nav>
+        </div>
 
-    <nav class="vice-nav">
-        <div class="nav-item">
-            <span class="nav-label">11. OSZTÁLY</span>
-            <div class="vice-dropdown">
-                <a href="Portfolio/halozatkezeles.pdf" target="_blank">HÁLÓZATKEZELÉS</a>
-                <a href="Portfolio/elektronika.pdf" target="_blank">ELEKTRONIKA</a>
-                <a href="Portfolio/digitalisaramkorok.pdf" target="_blank">DIGITÁLIS ÁRAMKÖRÖK</a>
-                <a href="Portfolio/adatbazis.pdf" target="_blank">ADATBÁZISKEZELÉS</a>
+        <div class="content-panel">
+            <div class="panel-top">
+                <div class="active-tab-label" id="tab-title">11. OSZTÁLY</div>
+            </div>
+            
+            <div class="panel-content">
+                <div id="grade11" class="list-container active">
+                    <a href="Portfolio/halozatkezeles.pdf" target="_blank" class="row"><span>Hálózatkezelés</span> <span class="arrow">></span></a>
+                    <a href="Portfolio/elektronika.pdf" target="_blank" class="row"><span>Elektronika</span> <span class="arrow">></span></a>
+                    <a href="Portfolio/digitalisaramkorok.pdf" target="_blank" class="row"><span>Digitális áramkörök</span> <span class="arrow">></span></a>
+                    <a href="Portfolio/adatbazis.pdf" target="_blank" class="row"><span>Adatbáziskezelés</span> <span class="arrow">></span></a>
+                </div>
+
+                <div id="grade12" class="list-container">
+                    <a href="Portfolio/mikrokontroller.pdf" target="_blank" class="row"><span>Mikrovezérlő programozás</span> <span class="arrow">></span></a>
+                    <a href="Portfolio/plc.pdf" target="_blank" class="row"><span>PLC programozás</span> <span class="arrow">></span></a>
+                    <a href="Portfolio/szamitogepesszim.pdf" target="_blank" class="row"><span>Számítógépes szimuláció</span> <span class="arrow">></span></a>
+                </div>
+
+                <div id="grade13" class="list-container">
+                    <a href="Portfolio/programfejlesztes.pdf" target="_blank" class="row"><span>Programfejlesztés</span> <span class="arrow">></span></a>
+                    <a href="Portfolio/robotika.pdf" target="_blank" class="row"><span>Robottechnika CAD/CAM</span> <span class="arrow">></span></a>
+                    <a href="Portfolio/iot.pdf" target="_blank" class="row"><span>IoT</span> <span class="arrow">></span></a>
+                    <a href="Portfolio/cv.pdf" target="_blank" class="row"><span>Munkavállalói angol</span> <span class="arrow">></span></a>
+                </div>
             </div>
         </div>
-        <div class="nav-item">
-            <span class="nav-label">12. OSZTÁLY</span>
-            <div class="vice-dropdown">
-                <a href="Portfolio/mikrokontroller.pdf" target="_blank">MIKROVEZÉRLŐK</a>
-                <a href="Portfolio/plc.pdf" target="_blank">PLC PROGRAMOZÁS</a>
-                <a href="Portfolio/szamitogepesszim.pdf" target="_blank">SZÁMÍTÓGÉPES SZIMULÁCIÓ</a>
-            </div>
-        </div>
-        <div class="nav-item">
-            <span class="nav-label">13. OSZTÁLY</span>
-            <div class="vice-dropdown">
-                <a href="Portfolio/programfejlesztes.pdf" target="_blank">PROGRAMFEJLESZTÉS</a>
-                <a href="Portfolio/robotika.pdf" target="_blank">ROBOTTECHNIKA</a>
-                <a href="Portfolio/iot.pdf" target="_blank">IOT RENDSZEREK</a>
-                <a href="Portfolio/cv.pdf" target="_blank">MUNKAVÁLLALÓI ANGOL</a>
-            </div>
-        </div>
-    </nav>
-
-    <main class="mission-container">
-        <div class="mission-box">
-            <h2 id="typing-text"></h2>
-            <p class="location-text">Dunaújvárosi Egyetem Bánki Donát Technikum</p>
-        </div>
-    </main>
+    </div>
 
     <script src="script.js"></script>
 </body>
