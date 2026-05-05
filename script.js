@@ -1,16 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     const textElement = document.getElementById('typing-text');
-    const name = "RESPECT + SZURÓCZKI LEVENTE"; // GTA-s utalással :)
+    // A neved helyett most ezt írja ki középen
+    const title = "SZAKMAI PORTFÓLIÓ"; 
     let i = 0;
 
     function type() {
-        if (i < name.length) {
-            textElement.innerHTML += name.charAt(i);
+        if (i < title.length) {
+            textElement.innerHTML += title.charAt(i);
             i++;
-            setTimeout(type, 100);
+            setTimeout(type, 120);
         }
     }
     
-    // Egy kis késleltetés, hogy a háttér beússzon
-    setTimeout(type, 1000);
+    setTimeout(type, 800);
 });

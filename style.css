@@ -16,7 +16,6 @@ body {
     flex-direction: column;
 }
 
-/* Retró Naplemente Animáció */
 .retro-sun {
     position: fixed;
     bottom: -10%;
@@ -27,87 +26,94 @@ body {
     background: linear-gradient(to bottom, #ff00ff 0%, #fde700 100%);
     border-radius: 50%;
     z-index: -1;
-    filter: blur(20px);
-    opacity: 0.6;
+    filter: blur(40px);
+    opacity: 0.5;
     animation: pulseSun 4s ease-in-out infinite alternate;
 }
 
 @keyframes pulseSun {
-    from { transform: translateX(-50%) scale(1); opacity: 0.4; }
-    to { transform: translateX(-50%) scale(1.1); opacity: 0.7; }
+    from { transform: translateX(-50%) scale(1); opacity: 0.3; }
+    to { transform: translateX(-50%) scale(1.1); opacity: 0.6; }
 }
 
-/* VHS szemcsézettség hatás */
 .vhs-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 1px, transparent 2px);
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.05) 0px, rgba(0,0,0,0.05) 1px, transparent 2px);
     pointer-events: none;
     z-index: 10;
 }
 
-/* Címstílus (GTA szerű) */
+.vice-header {
+    padding: 2rem 0;
+}
+
 .game-title {
     font-family: 'Permanent Marker', cursive;
-    font-size: 4rem;
+    font-size: 4.5rem;
     text-align: center;
     text-shadow: 4px 4px 0px var(--vice-pink), 8px 8px 0px #000;
-    margin: 1rem 0;
+    margin: 0;
     letter-spacing: 5px;
-    transform: rotate(-3deg);
+    transform: rotate(-2deg);
 }
 
 .game-title span { color: var(--vice-blue); }
 
-/* Navigáció */
 .vice-nav {
     display: flex;
     justify-content: center;
-    gap: 3rem;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 1rem;
-    border-top: 4px solid var(--vice-pink);
-    border-bottom: 4px solid var(--vice-blue);
+    gap: 4rem;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 1.2rem;
+    border-top: 3px solid var(--vice-pink);
+    border-bottom: 3px solid var(--vice-blue);
 }
 
+.nav-item { position: relative; }
+
 .nav-label {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--vice-yellow);
     cursor: pointer;
+    font-weight: bold;
     transition: 0.3s;
 }
 
 .nav-item:hover .nav-label {
-    text-shadow: 0 0 10px var(--vice-yellow);
-    transform: scale(1.1);
+    color: white;
+    text-shadow: 0 0 15px var(--vice-yellow);
 }
 
-/* Dropdown */
 .vice-dropdown {
     position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
     display: none;
-    background: var(--vice-pink);
-    min-width: 200px;
-    box-shadow: 10px 10px 0px #000;
+    background: #000;
+    min-width: 250px;
+    border: 2px solid var(--vice-pink);
+    z-index: 100;
+    box-shadow: 8px 8px 0px var(--vice-blue);
 }
 
 .nav-item:hover .vice-dropdown { display: block; }
 
 .vice-dropdown a {
     display: block;
-    padding: 10px;
+    padding: 12px 20px;
     color: white;
     text-decoration: none;
-    font-weight: bold;
-    border: 1px solid black;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #222;
 }
 
 .vice-dropdown a:hover {
-    background: var(--vice-blue);
-    color: black;
+    background: var(--vice-pink);
+    color: white;
 }
 
-/* Küldetés doboz (Mission Passed stílus) */
 .mission-container {
     flex: 1;
     display: flex;
@@ -115,21 +121,20 @@ body {
     align-items: center;
 }
 
-.mission-box {
-    text-align: center;
-    animation: slideIn 1s ease-out;
-}
+.mission-box { text-align: center; }
 
 #typing-text {
     font-family: 'Permanent Marker', cursive;
-    font-size: 3.5rem;
+    font-size: 4rem;
     color: var(--vice-yellow);
-    text-shadow: 3px 3px 0px #000;
+    text-shadow: 4px 4px 0px #000;
+    margin-bottom: 0.5rem;
 }
 
 .location-text {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--vice-blue);
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    opacity: 0.9;
 }
