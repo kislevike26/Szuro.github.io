@@ -1,16 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     const textElement = document.getElementById('typing-text');
-    const name = "Készítette: Szuróczki Levente"; // Új név beállítva
+    const name = "RESPECT + SZURÓCZKI LEVENTE"; // GTA-s utalással :)
     let i = 0;
 
     function type() {
         if (i < name.length) {
             textElement.innerHTML += name.charAt(i);
             i++;
-            setTimeout(type, 80); // Kicsit gyorsabb, folyamatosabb gépelés
+            setTimeout(type, 100);
         }
     }
     
-    // Rövid késleltetés az indulás előtt a kártya animációja miatt
-    setTimeout(type, 800);
+    // Egy kis késleltetés, hogy a háttér beússzon
+    setTimeout(type, 1000);
 });

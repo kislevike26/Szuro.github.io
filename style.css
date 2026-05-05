@@ -1,161 +1,135 @@
 :root {
-    --primary: #00d2ff;
-    --secondary: #3a7bd5;
-    --bg-dark: #05070a;
-    --glass-bg: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --text-main: #e0e6ed;
+    --vice-pink: #ff00ff;
+    --vice-blue: #00f2ff;
+    --vice-yellow: #fde700;
+    --bg-dark: #1a0033;
 }
 
 body {
-    margin: 0;
-    padding: 0;
     background-color: var(--bg-dark);
-    color: var(--text-main);
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
-    min-height: 100vh;
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Mozgó háttér animáció */
-.animated-bg {
+/* Retró Naplemente Animáció */
+.retro-sun {
+    position: fixed;
+    bottom: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: linear-gradient(to bottom, #ff00ff 0%, #fde700 100%);
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(20px);
+    opacity: 0.6;
+    animation: pulseSun 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulseSun {
+    from { transform: translateX(-50%) scale(1); opacity: 0.4; }
+    to { transform: translateX(-50%) scale(1.1); opacity: 0.7; }
+}
+
+/* VHS szemcsézettség hatás */
+.vhs-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle at 50% 50%, #1a2a44 0%, #05070a 100%);
-    z-index: -2;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 1px, transparent 2px);
+    pointer-events: none;
+    z-index: 10;
 }
 
-.animated-bg::after {
-    content: '';
-    position: absolute;
-    top: -50%; left: -50%; width: 200%; height: 200%;
-    background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
-    opacity: 0.1;
-    animation: rotateBg 100s linear infinite;
-}
-
-@keyframes rotateBg {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-/* Header */
-.main-header {
-    padding: 4rem 1rem 2rem;
+/* Címstílus (GTA szerű) */
+.game-title {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 4rem;
     text-align: center;
-    animation: fadeInDown 1s ease-out;
+    text-shadow: 4px 4px 0px var(--vice-pink), 8px 8px 0px #000;
+    margin: 1rem 0;
+    letter-spacing: 5px;
+    transform: rotate(-3deg);
 }
 
-.school-logo {
-    height: 120px;
-    filter: drop-shadow(0 0 20px var(--secondary));
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.school-logo:hover { transform: scale(1.1) rotate(5deg); }
+.game-title span { color: var(--vice-blue); }
 
 /* Navigáció */
-.modern-nav {
-    position: sticky;
-    top: 20px;
-    z-index: 1000;
-    margin: 0 auto;
-    width: fit-content;
-}
-
-.nav-container {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    border-radius: 50px;
-    padding: 0.5rem 1rem;
+.vice-nav {
     display: flex;
-    gap: 1rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    justify-content: center;
+    gap: 3rem;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    border-top: 4px solid var(--vice-pink);
+    border-bottom: 4px solid var(--vice-blue);
 }
 
-.nav-group { position: relative; }
-
-.nav-btn {
-    background: transparent;
-    border: none;
-    color: var(--text-main);
-    padding: 0.8rem 1.5rem;
-    font-weight: 600;
+.nav-label {
+    font-size: 1.5rem;
+    color: var(--vice-yellow);
     cursor: pointer;
-    border-radius: 25px;
-    transition: all 0.3s;
+    transition: 0.3s;
 }
 
-.nav-btn:hover { background: var(--secondary); color: white; }
+.nav-item:hover .nav-label {
+    text-shadow: 0 0 10px var(--vice-yellow);
+    transform: scale(1.1);
+}
 
 /* Dropdown */
-.dropdown {
+.vice-dropdown {
     position: absolute;
-    top: calc(100% + 15px);
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    background: rgba(13, 17, 23, 0.95);
-    border: 1px solid var(--glass-border);
-    border-radius: 15px;
-    min-width: 220px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    display: none;
+    background: var(--vice-pink);
+    min-width: 200px;
+    box-shadow: 10px 10px 0px #000;
 }
 
-.nav-group:hover .dropdown {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-}
+.nav-item:hover .vice-dropdown { display: block; }
 
-.dropdown a {
+.vice-dropdown a {
     display: block;
-    padding: 1rem;
-    color: var(--text-main);
+    padding: 10px;
+    color: white;
     text-decoration: none;
-    font-size: 0.9rem;
-    border-bottom: 1px solid var(--glass-border);
-    transition: background 0.2s;
+    font-weight: bold;
+    border: 1px solid black;
 }
 
-.dropdown a:hover { background: var(--secondary); border-radius: 10px; }
+.vice-dropdown a:hover {
+    background: var(--vice-blue);
+    color: black;
+}
 
-/* Hero Card */
-.hero-section {
+/* Küldetés doboz (Mission Passed stílus) */
+.mission-container {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50vh;
 }
 
-.glass-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(15px);
-    border: 1px solid var(--glass-border);
-    padding: 5rem;
-    border-radius: 30px;
+.mission-box {
     text-align: center;
-    position: relative;
-    overflow: hidden;
-    animation: cardEntrance 1.5s ease-out;
+    animation: slideIn 1s ease-out;
 }
 
-.divider {
-    height: 4px;
-    width: 80px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    margin: 2rem auto;
-    border-radius: 2px;
+#typing-text {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 3.5rem;
+    color: var(--vice-yellow);
+    text-shadow: 3px 3px 0px #000;
 }
 
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes cardEntrance {
-    from { opacity: 0; transform: scale(0.8) translateY(50px); }
-    to { opacity: 1; transform: scale(1) translateY(0); }
+.location-text {
+    font-size: 1.2rem;
+    color: var(--vice-blue);
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
